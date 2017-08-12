@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WickedJDG's Tennis Score Tracker</title>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+    <script>
+      var games = [];
+
+      $(document).ready(() => {
+        $('#date').val(moment().format('YYYY-MM-DD'));
+
+        $('#input').submit((e) => {
+          e.preventDefault();
+
+          let game = {
+            date: $('#date').val(),
+            yourscore: $('#yourscore').val(),
+            theirscore: $('#theirscore').val()
+          };
+
+          games.push(game);
+
+          let output = '';
+          for (let i = 0; i < games.length; i++) {
+            let game = games[i];
+
+            output += `Date: ${game.date}\n`;
+            output += `Your score: ${game.yourscore}\n`;
+            output += `Their score: ${game.theirscore}\n`;
+
+            if (game.yourscore > game.theirscore) {
+              output += 'Win\n';
+            } else if (game.yourscore == game.theirscore) {
+              output += 'Draw\n';
+            } else {
+              output += 'Lose\n';
+            }
+            
+            output += '----\n';
+          }
+
+          $('#output').html(output);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>WickedJDG's Tennis Score Tracker</h1>
+
+    <form id="input">
+      <p>
+        Date:
+        <input type="date" id="date">
+      </p>
+      <p>
+        Your score:
+        <input type="number" id="yourscore" value="0">
+      </p>
+      <p>
+        Their score:
+        <input type="number" id="theirscore" value="0">
+      </p>
+      <button type="submit">Output!</button>
+    </form>
+
+    <pre id="output">
+
+    </div>
+  </body>
+</html>
