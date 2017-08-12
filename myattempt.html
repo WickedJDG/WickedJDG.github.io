@@ -10,18 +10,16 @@
       var games = [];
 
       $(document).ready(() => {
-        $('#date').val(moment().format('YYYY-MM-DD'));
+        $('#date').val(moment().format('DD-MM-YYYY'));
 
         $('#input').submit((e) => {
           e.preventDefault();
 
-          let game = {
+          games.push(game = {
             date: $('#date').val(),
             yourscore: $('#yourscore').val(),
             theirscore: $('#theirscore').val()
-          };
-
-          games.push(game);
+          });
 
           let output = '';
           for (let i = 0; i < games.length; i++) {
@@ -38,10 +36,9 @@
             } else {
               output += 'Lose\n';
             }
-            
+
             output += '----\n';
           }
-
           $('#output').html(output);
         });
       });
