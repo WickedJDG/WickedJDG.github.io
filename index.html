@@ -1,1 +1,26 @@
-Hi my name is Jack Gill
+<!DOCTYPE html>
+<html>
+<body>
+<h1> WickedJDG's Tennis Score Tracker </h1>
+<p>Date: <input type="date" id="myDate" value="2017-01-01"></p>
+<p>Your Score: <input type="number" id="yourScore" value="0"></p>
+<p>Their score: <input type="number" id="theirScore" value="0"></p>
+<button onclick="storeScore()">submit</button>
+<p id="output1"></p>
+<p id="output2"></p>
+<p id="output3"></p>
+<script>
+function storeScore() {
+  var day = document.getElementById("myDate").value;
+  document.getElementById("output1").innerHTML = day;
+
+  var homeScore = document.getElementById("yourScore").value;
+  document.getElementById("output2").innerHTML = homeScore;
+
+  var awayScore = document.getElementById("theirScore").value;
+  document.getElementById("output3").innerHTML = awayScore;
+
+}
+</script>
+</body>
+</html>
