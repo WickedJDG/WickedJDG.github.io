@@ -2,10 +2,11 @@
 <html>
 <head>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
   <h1> WickedJDG's Tennis Score Tracker </h1>
-  <
+
   <p>Date: <input type="date" id="myDate" value="2017-01-01"></p>
   <p>Your Score: <input type="number" id="yourScore" value="0"></p>
   <p>Their score: <input type="number" id="theirScore" value="0"></p>
@@ -14,6 +15,10 @@
   <p id="output2"></p>
   <p id="output3"></p>
   <p id="winlose"></p>
+  <button onclick="saveData()">Save</button>
+  <button onlcick="openFile()">Open</button>
+  <p id="fileOutput">This should change to "hi"</p>
+
   <script>
     function storeScore() {
       var day = document.getElementById("myDate").value;
@@ -26,12 +31,27 @@
       var awayScore = document.getElementById("theirScore").value;
       $('#output3').html(awayScore);
       if (homeScore > awayScore) {
-        $('#winlose').html("Lose");
+        $('#winlose').html("Win");
       } else {
         $('#winlose').html("Lose");
             }
+    // still require to save this info into txt doc on depository
+    }
+    
+    function openFile() { //load the text file into the #fileOutput div
+      $(document).ready(function() {
+            $('#fileOutput').load('/output.txt');
+            });
+        });
+
+      //$("#fileOutput" ).load("http://jackgill.me/output.txt");
+    }
+
+    function saveData() {
+
     }
   </script>
+
 </body>
 
 </html>
