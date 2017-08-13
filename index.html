@@ -37,18 +37,18 @@
             }
     // still require to save this info into txt doc on depository
     }
-    
-    function openFile() { //load the text file into the #fileOutput div
-      $(document).ready(function() {
-            $('#fileOutput').load('/output.txt');
-            });
-        });
 
+    function openFile() { //load the text file into the #fileOutput div
+      file_name = $("output.txt").val();
+        $('#fileOutput').load(file_name);
       //$("#fileOutput" ).load("http://jackgill.me/output.txt");
     }
 
     function saveData() {
-
+      $(document).ready(function() {
+            $('#fileOutput').load('/output.txt');
+            });
+        });
     }
   </script>
 
